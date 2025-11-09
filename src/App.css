@@ -1,0 +1,95 @@
+* {
+	font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.todo {
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+}
+
+#todo__input {
+    border-radius: 0.5em;
+    border: solid 1px #aaa;
+    height: 2rem;
+}
+
+#todo__lists {
+    width: 80%;
+    justify-content: space-between;
+    display: flex;
+    margin: auto;
+
+}
+
+#todo__pending,#todo__completed {
+    margin: 4px;
+    padding: 8px;
+    width: 40%;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 10px #ccc;
+}
+
+.todo__div {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo__item {
+    margin-bottom: 8px;
+    width: full;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e5e2d4;
+    padding: 4px;
+	align-items: center;
+}
+
+.todo__title {
+	text-align: center;
+	max-width: 60%;
+}
+
+.todo__inp-edit {
+	width: 100%;
+}
+
+#todo__btn-add,.todo__btn-edit,.todo__btn-delete,.todo__btn-mark {
+    margin-left: 4px;
+    margin-right: 4px;
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    vertical-align: baseline;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition-property: filter;
+    transition-duration: 0.15s;
+    cursor: pointer;
+}
+
+.todo__btn-delete {
+    background-color: #bb534d;
+}
+
+#todo__btn-add,.todo__btn-edit {
+    background-color: #3a8cb7;
+}
+
+.todo__btn-mark {
+    background-color: #8eac56;
+}
+
+button:hover:enabled {
+    filter: brightness(0.8);
+}
+
+button:disabled {
+    filter: grayscale(0.9);
+    cursor: not-allowed;
+    transition: none;
+}
