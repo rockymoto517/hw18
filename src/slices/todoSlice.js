@@ -1,3 +1,15 @@
+/***********************************************************
+ * There's a lot of jank due to the way the API is setup.  *
+ * Since the API holds no state, because the code attempts *
+ * to sync the local state with the state of the API, some *
+ * of local changes will get overriden on update. Most     *
+ * notably, if you update a todo and the mark/unmark it,   *
+ * because I grab the result from the API, it will         *
+ * un-update the todo. This also means todos that exist    *
+ * locally are bugged due to the inability to update them  *
+ * properly using the API...                               *
+ ***********************************************************/
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const baseURL = "https://dummyjson.com/todos";
@@ -44,15 +56,7 @@ const TodoSlice = createSlice({
     todoData: {},
     loaded: false,
   },
-  reducers: {
-    async updateTodo(id, body) {
-      return fetch(`${baseURL}/${id}`, {
-        headers,
-        method: "PATCH",
-        body,
-      }).then((res) => res.json());
-    },
-  },
+  // Use extraReducers so we can have async things done!
   extraReducers: (builder) => {
     builder.addCase(fetchTodoData.fulfilled, (state, action) => {
       state.todoData = action.payload;
